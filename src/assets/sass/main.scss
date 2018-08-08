@@ -1,3 +1,24 @@
 
 
-@import 'bulma/bulma.sass'
+@import '~bulma/sass/utilities/_all.sass';
+
+// Override any bulma variables
+$navbar-padding-horizontal: 300px;
+
+@import '~bulma/bulma.sass';
+
+
+.mainHeroContainer {
+	padding-top: 9rem;
+	padding-bottom: 9rem;
+}
+
+.heroImage {
+	height: 200px;
+}
+
+// @TODO Make better right navbar padding
+.navbar-end {
+	margin-right: 20em;
+}
+
