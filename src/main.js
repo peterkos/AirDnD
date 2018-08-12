@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 
+import VueFire from 'vuefire'
+
+Vue.use(VueFire);
+
 require('@/assets/sass/main.scss')
 
 Vue.config.productionTip = false
