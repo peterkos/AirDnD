@@ -15,7 +15,7 @@
 						<th class="has-text-centered">Hit die</th>
 					</thead>
 					<tbody>
-						<tr v-for="currentClass in classes">
+						<tr v-for="currentClass in classes" :key="currentClass.id">
 							<td class="has-text-centered">{{currentClass.name}}</td>
 							<td class="has-text-centered">{{currentClass.hit_die}}</td>
 						</tr> 
@@ -73,9 +73,9 @@
 
 <script>
 
-import HelloWorld from './components/HelloWorld'
+// import HelloWorld from "./components/HelloWorld"
 
-import Firebase from 'firebase';
+import Firebase from "firebase"
 
 // Firebase configuration
 let config = {
@@ -90,10 +90,10 @@ let config = {
 let app = Firebase.initializeApp(config)
 let db = app.database()
 
-let classesRef = db.ref('classes')
+let classesRef = db.ref("classes")
 
 export default {
-	name: 'App',
+	name: "App",
 	firebase: {
 		classes: classesRef
 	},
@@ -109,15 +109,14 @@ export default {
 	methods: {
 
 		addClass() {
-			classesRef.push(this.newClass);
-			this.cancelAddClass();
+			classesRef.push(this.newClass)
+			this.cancelAddClass()
 		},
 
 		cancelAddClass() {
-			this.newClass.name = "";
-			this.newClass.hit_die = "";
+			this.newClass.name = ""
+			this.newClass.hit_die = ""
 		}
 	}
 }
 </script>
-
