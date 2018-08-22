@@ -33,10 +33,24 @@
 
 					<!-- Button to add new players -->
 					<div class="column is-narrow">
-						<div class="outlineBox" @click="addPlayer()">
+						<div class="outlineBox">
 							<font-awesome-icon icon="user" size="3x" />
 							<h1 class="is-spaced is-size-6">Add player</h1>
-							<!-- <input class="input" type="text" v-model="newPlayer" @keyUp.enter="addPlayer()"/> -->
+
+							<!-- Basic player info -->
+							<div class="field">
+
+								<label class="label has-text-white is-small" style="text-align: left">Name</label>
+								<input class="input is-small is-primary playerNameInput" 
+										type="text" 
+										placeholder="John" 
+										v-model="newPlayer"
+										@keyup.enter="addPlayer()"/>
+
+								
+							</div>
+
+							
 							<font-awesome-icon icon="plus-circle" size="2x"/>
 						</div>
 					</div>
@@ -63,6 +77,7 @@ export default {
 		
 		addPlayer() {
 			this.players.push(this.newPlayer)
+			this.newPlayer = ""
 		},
 
 		deletePlayer(player) {
