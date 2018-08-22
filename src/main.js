@@ -5,19 +5,28 @@ import Create from "./Create"
 import VueRouter from "vue-router"
 import Vuex from "vuex"
 import VueFire from "vuefire"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faChessKing, faUser, faPlusCircle } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
 // Uses
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(VueFire)
 
+// FontAwesome
+library.add(faChessKing)
+library.add(faUser)
+library.add(faPlusCircle)
+Vue.component("font-awesome-icon", FontAwesomeIcon)
+
 // Routing
 import Home from "@/components/Home"
-import Classes from "@/components/Classes"
+// import Classes from "@/components/Classes"
 
 const routes = [
 	{ path: "/", component: Home },
-	{ path: "/classes", component: Classes },
+	// { path: "/classes", component: Classes },
 ]
 
 const router = new VueRouter({
