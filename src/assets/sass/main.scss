@@ -8,6 +8,19 @@ $navbar-padding-horizontal: 300px;
 @import '~bulma/bulma.sass';
 
 
+// Link cards
+.box {
+
+	opacity: 0.8;
+
+	&:hover {
+
+		opacity: 1;
+
+	}
+}
+
+
 .mainHeroContainer {
 	padding-top: 9rem;
 	padding-bottom: 9rem;
