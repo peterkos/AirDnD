@@ -19,9 +19,11 @@
 						</div>
 
 					</div>
-				</div>
+				<!-- </div> -->
 
-				<div class="columns is-centered is-vcentered has-text-centered">
+				<div class="verticalLine"></div>
+
+				<!-- <div class="columns is-centered is-vcentered has-text-centered"> -->
 					<div class="column is-narrow playerColumn" v-for="(player, index) in players" :key="index">
 						<div class="outlineBox">
 							<font-awesome-icon icon="user" size="3x" />
@@ -51,11 +53,11 @@
 							</div>
 
 							
-							<font-awesome-icon icon="plus-circle" size="2x"/>
+							<!-- <font-awesome-icon icon="plus-circle" size="2x" @click="addPlayer()"/> -->
 						</div>
 					</div>
 
-				</div>
+				</div> <!-- End of columns -->
 
 			</div>
 
