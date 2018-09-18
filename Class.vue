@@ -1,10 +1,5 @@
-<style lang="scss">
-@import '../assets/sass/main.scss'
-</style>
-
 <template>
-	<div id="app">
-		
+	<div id="class">
 		<div class="columns is-centered">
 			<div class="column is-half has-text-centered">
 				<h2 class="is-size-2">Class list</h2>
@@ -15,7 +10,7 @@
 						<th class="has-text-centered">Hit die</th>
 					</thead>
 					<tbody>
-						<tr v-for="currentClass in classes" :key="currentClass.id">
+						<tr v-for="currentClass in classes">
 							<td class="has-text-centered">{{currentClass.name}}</td>
 							<td class="has-text-centered">{{currentClass.hit_die}}</td>
 						</tr> 
@@ -68,55 +63,46 @@
 		</div>
 	</div>
 
-</div>
 </template>
 
 <script>
+	import Firebase from 'firebase';
+	
+	// Firebase configuration
+	let config = {
+		apiKey: "AIzaSyAAEFPOxnjvOVq15GryE8at47-BDCzhvWo",
+		authDomain: "anotherdnd.firebaseapp.com",
+		databaseURL: "https://anotherdnd.firebaseio.com",
+		projectId: "anotherdnd",
+		storageBucket: "anotherdnd.appspot.com",
+		messagingSenderId: "149181052700"
+	}
 
-// import HelloWorld from "./components/HelloWorld"
-
-import Firebase from "firebase"
-
-// Firebase configuration
-let config = {
-	apiKey: "AIzaSyAAEFPOxnjvOVq15GryE8at47-BDCzhvWo",
-	authDomain: "anotherdnd.firebaseapp.com",
-	databaseURL: "https://anotherdnd.firebaseio.com",
-	projectId: "anotherdnd",
-	storageBucket: "anotherdnd.appspot.com",
-	messagingSenderId: "149181052700"
-}
-
-let app = Firebase.initializeApp(config)
-let db = app.database()
-
-let classesRef = db.ref("classes")
-
-export default {
-	name: "Home",
-	firebase: {
-		classes: classesRef
-	},
-	data() {
-		return {
-			newClass: {
-				name: "",
-				hit_die: ""
+	let app = Firebase.initializeApp(config)
+	let db = app.database()
+	let classesRef = db.ref('classes')
+	export default {
+		name: 'Class',
+		firebase: {
+			classes: classesRef
+		},
+		data() {
+			return {
+				newClass: {
+					name: "",
+					hit_die: ""
+				}
+			}
+		},
+		methods: {
+			addClass() {
+				classesRef.push(this.newClass);
+				this.cancelAddClass();
+			},
+			cancelAddClass() {
+				this.newClass.name = "";
+				this.newClass.hit_die = "";
 			}
 		}
-	},
-
-	methods: {
-
-		addClass() {
-			classesRef.push(this.newClass)
-			this.cancelAddClass()
-		},
-
-		cancelAddClass() {
-			this.newClass.name = ""
-			this.newClass.hit_die = ""
-		}
 	}
-}
 </script>

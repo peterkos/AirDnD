@@ -9,16 +9,16 @@ Speaking of configuration stuff....
 
 ## Install
 
-First, install `yarn` with `homebrew`:
+First, install `npm` with `homebrew`:
 
 ```
-brew install yarn
+brew install node
 ```
 
 Then, install local dependencies for the project:
 
 ```
-yarn install
+npm install
 ```
 
 That's it!
@@ -28,10 +28,10 @@ That's it!
 To run the local server (Sass/Vue compiling, etc.), do the following:
 
 ```
-yarn dev
+npm run dev
 ```
 
-We're using yarn instead of npm for... reasons. The good thing is that in 99% tutorials, whenever you see an `npm` command, just replace `npm` with `yarn` and remove any `i` or `--save` directives. Voilà, yarn!
+(which really does `parcel index.html` in the background, because parcel is **awesome**.)
 
 
 ## Stack
@@ -39,7 +39,7 @@ We're using yarn instead of npm for... reasons. The good thing is that in 99% tu
 Current dev stack, subject to change because n00bz  
 
 Backend: [Firebase](https://firebase.google.com/)  
-Frontend: [Vue.js](https://vuejs.org/), [Bulma](https://vuejs.org/)
+Frontend: [Vue.js](https://vuejs.org/), [Bulma](https://vuejs.org/), [Parcel](https://parceljs.org)
 
 
 ## Features
@@ -56,7 +56,7 @@ Frontend: [Vue.js](https://vuejs.org/), [Bulma](https://vuejs.org/)
 - Create your own items, monsters, etc.
 
 
-## Super roadmap
+## Super roadmap ("... I'll need a dev team and 2 years...")
 
 - Connect party members together to share per-campaign items
 - Bring 'er to market
