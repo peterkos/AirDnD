@@ -1,5 +1,11 @@
 
 # Created by https://www.gitignore.io/api/node,macos,firebase
+# Modified by @peterkos because no Parcel support ;(
+
+### MODIFIED ###
+dist/
+
+
 
 ### Firebase ###
 .idea
