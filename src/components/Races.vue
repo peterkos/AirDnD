@@ -1,0 +1,20 @@
+<template>
+	<div id="races">
+
+		<h1>Races</h1>
+
+	</div>
+
+</template>
+
+<script>
+	export default {
+		name: "races",
+		data() {
+			return {
+			}
+		},
+		methods: {
+		}
+	}
+</script>
