@@ -1,7 +1,8 @@
 <template>
 	<div id="home">
 
-		<h1> Welcome to our app!</h1>
+		<!-- This is the first view shown to the user. -->
+		<h1 class="title has-text-centered has-text-white is-vcentered">Welcome! Please select a category above.</h1>
 
 	</div>
 
