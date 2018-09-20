@@ -9,35 +9,35 @@
 				<div class="columns is-centered has-text-centered is-narrow">
 
 					<div class="column ">
-						<div class="box">
-							<router-link to="/spells">
+						<router-link to="/spells">
+							<div class="box">
 								<h1 class="title is-size-4 has-text-black">Spells</h1>
-							</router-link>
-						</div>
+							</div>
+						</router-link>
 					</div>
 
 					<div class="column">
-						<div class="box">
 							<router-link to="/classes">
+						<div class="box">
 								<h1 class="title is-size-4 has-text-black">Classes</h1>
-							</router-link>
 						</div>
+							</router-link>
 					</div>
 
 					<div class="column">
-						<div class="box">
 							<router-link to="/races">
+						<div class="box">
 								<h1 class="title is-size-4 has-text-black">Races</h1>
-							</router-link>
 						</div>
+							</router-link>
 					</div>
 
 					<div class="column">
-						<div class="box">
 							<router-link to="/items">
+						<div class="box">
 								<h1 class="title is-size-4 has-text-black">Items</h1>
-							</router-link>
 						</div>
+							</router-link>
 					</div>
 
 				</div>
