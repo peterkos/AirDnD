@@ -1,5 +1,6 @@
 <template>
 	<div id="class">
+		<h1>Class</h1>
 		<div class="columns is-centered">
 			<div class="column is-half has-text-centered">
 				<h2 class="is-size-2">Class list</h2>
@@ -78,31 +79,31 @@
 		messagingSenderId: "149181052700"
 	}
 
-	let app = Firebase.initializeApp(config)
-	let db = app.database()
-	let classesRef = db.ref('classes')
+	// let app = Firebase.initializeApp(config)
+	// let db = app.database()
+	// let classesRef = db.ref('classes')
 	export default {
 		name: 'Class',
-		firebase: {
-			classes: classesRef
-		},
-		data() {
-			return {
-				newClass: {
-					name: "",
-					hit_die: ""
-				}
-			}
-		},
-		methods: {
-			addClass() {
-				classesRef.push(this.newClass);
-				this.cancelAddClass();
-			},
-			cancelAddClass() {
-				this.newClass.name = "";
-				this.newClass.hit_die = "";
-			}
-		}
+		// firebase: {
+		// 	classes: classesRef
+		// },
+		// data() {
+		// 	return {
+		// 		newClass: {
+		// 			name: "",
+		// 			hit_die: ""
+		// 		}
+		// 	}
+		// },
+		// methods: {
+		// 	addClass() {
+		// 		classesRef.push(this.newClass);
+		// 		this.cancelAddClass();
+		// 	},
+		// 	cancelAddClass() {
+		// 		this.newClass.name = "";
+		// 		this.newClass.hit_die = "";
+		// 	}
+		// }
 	}
 </script>
