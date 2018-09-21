@@ -13,7 +13,7 @@ Vue.use(VueFire);
 // Class imports
 import MainApp from "./Main.vue" // Stores router-view, nesting everything below:
 import Home from "./components/Home.vue"
-// import Classes from "./components/Class.vue"
+import Classes from "./components/Classes.vue"
 import Spells from "./components/Spells.vue"
 import Races from "./components/Races.vue"
 import Items from "./components/Items.vue"
@@ -21,7 +21,7 @@ import Items from "./components/Items.vue"
 // Setup routing
 const routes = [
 	{ path: "/", component: Home},
-	// { path: "/classes", component: Classes }, -- Am on plane, and Firebase is unhappy in the air.
+	{ path: "/classes", component: Classes },
 	{ path: "/spells", component: Spells },
 	{ path: "/races", component: Races },
 	{ path: "/items", component: Items },
