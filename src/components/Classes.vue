@@ -1,5 +1,5 @@
 <template>
-	<div id="class">
+	<div id="classesSection">
 		<div class="columns is-centered">
 			<div class="column is-half has-text-centered">
 				<h2 class="is-size-2">Class list</h2>
@@ -68,8 +68,7 @@
 <script>
 	import Firebase from 'firebase'
 	import db from '../db.js'
-
-	let spellsRef = db.ref('spells')
+	
 	let classesRef = db.ref('classes')
 
 	export default {
@@ -77,7 +76,7 @@
 		firebase: function() {
 			return {
 				classes: classesRef
-		}
+			}
 		},
 		data() {
 			return {
