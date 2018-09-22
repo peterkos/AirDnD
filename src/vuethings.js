@@ -11,7 +11,7 @@ Vue.use(VueFire);
 
 
 // Class imports
-import MainApp from "./Main.vue" // Stores router-view, nesting everything below:
+import MainApp from "./MainApp.vue" // Stores router-view, nesting everything below:
 import Home from "./components/Home.vue"
 import Classes from "./components/Classes.vue"
 import Spells from "./components/Spells.vue"

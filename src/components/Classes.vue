@@ -81,10 +81,13 @@
 	let app = Firebase.initializeApp(config)
 	let db = app.database()
 	let classesRef = db.ref('classes')
+
 	export default {
-		name: 'Class',
-		firebase: {
-			classes: classesRef
+		name: 'Classes',
+		firebase: function() {
+			return {
+				classes: classesRef
+		}
 		},
 		data() {
 			return {

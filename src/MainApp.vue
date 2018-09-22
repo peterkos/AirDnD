@@ -63,7 +63,7 @@
 
 <script>
 	export default {
-		name: "main",
+		name: "MainApp",
 		data() {
 			return {
 			}
