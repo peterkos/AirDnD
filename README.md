@@ -1,6 +1,11 @@
 # Another DnD
 
-AnotherDnD is antoher DnD website (ah!) that manages spells, characters, monsters, feats -- you name it!
+AnotherDnD is another DnD website (ah!) that manages spells, characters, monsters, feats -- you name it!
+
+
+![Screenshot of website](current_screen.png)
+
+<p align="center"><i>A current look at the site</i></p>
 
 Since the website is in its early stages, we just want to get something up on the screen. If you're curious though, the roadmap is below all the configuration stuff.
 
@@ -49,11 +54,13 @@ Frontend: [Vue.js](https://vuejs.org/), [Bulma](https://vuejs.org/), [Parcel](ht
 
 ## Roadmap
 
-- View spells
-- View classes
-- View feats
-- Sort and filter all the things
-- Create your own items, monsters, etc.
+- [x] View spells
+- [] View classes
+- [] View items
+- [] View races
+- [] Central datastore (vuexfire, vuex, etc.)
+- [] Sort and filter all the things using said datastore
+- [] Create your own items, monsters, etc.
 
 
 ## Super roadmap ("... I'll need a dev team and 2 years...")
