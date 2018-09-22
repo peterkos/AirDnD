@@ -7,11 +7,16 @@
 </template>
 
 <script>
-	// let app = Firebase.initializeApp(config)
-	// let db = app.database()
-	// let classesRef = db.ref('classes')
+	import Firebase from 'firebase'
+	import db from '../db.js'
+
+	let spellsRef = db.ref('spells')
+	
 	export default {
 		name: 'Spells',
+		firebase: {
+			classes: spellsRef
+		},
 		data() {
 			return {
 			}

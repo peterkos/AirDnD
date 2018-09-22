@@ -66,20 +66,10 @@
 </template>
 
 <script>
-	import Firebase from 'firebase';
-	
-	// Firebase configuration
-	let config = {
-		apiKey: "AIzaSyAAEFPOxnjvOVq15GryE8at47-BDCzhvWo",
-		authDomain: "anotherdnd.firebaseapp.com",
-		databaseURL: "https://anotherdnd.firebaseio.com",
-		projectId: "anotherdnd",
-		storageBucket: "anotherdnd.appspot.com",
-		messagingSenderId: "149181052700"
-	}
+	import Firebase from 'firebase'
+	import db from '../db.js'
 
-	let app = Firebase.initializeApp(config)
-	let db = app.database()
+	let spellsRef = db.ref('spells')
 	let classesRef = db.ref('classes')
 
 	export default {
