@@ -55,12 +55,12 @@ Frontend: [Vue.js](https://vuejs.org/), [Bulma](https://vuejs.org/), [Parcel](ht
 ## Roadmap
 
 - [x] View spells
-- [] View classes
-- [] View items
-- [] View races
-- [] Central datastore (vuexfire, vuex, etc.)
-- [] Sort and filter all the things using said datastore
-- [] Create your own items, monsters, etc.
+- [ ] View classes
+- [ ] View items
+- [ ] View races
+- [ ] Central datastore (vuexfire, vuex, etc.)
+- [ ] Sort and filter all the things using said datastore
+- [ ] Create your own items, monsters, etc.
 
 
 ## Super roadmap ("... I'll need a dev team and 2 years...")
