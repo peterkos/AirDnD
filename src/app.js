@@ -1,6 +1,6 @@
 
 
 // Design
-import "bulma/bulma.sass"
 import "./sass/main.sass"
+import "bulma/bulma.sass"
 
