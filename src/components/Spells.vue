@@ -9,11 +9,14 @@
 
 				<div class="field has-addons">
 					<div class="control is-expanded">
-						<input type="text"
-						class="input searchBar"
-						@click="searchActive = true"
-						@keyup.esc="searchActive = false"
-						placeholder="Search for a spell here"/>
+						<vue-fuse class="input searchBar"
+						          placeholder="Search for spellsss"
+						          eventName="results"
+						          :list="spells"
+						          :keys="['name', 'level']"
+						          :defaultAll="true"
+						          :eventName="fuseResultsUpdated"
+						          @fuseResultsUpdated="showResults($event)"/>
 					</div>
 					<div class="control">
 						<a class="button is-info">Search</a>
@@ -81,19 +84,19 @@
 							<thead>
 								<th class="has-text-centered">Level</th>
 								<th class="">Name</th>
-								<!-- <th class="">Duration</th> -->
-								<th class="has-text-centered">Range</th>
+								<th class="has-text-centered">Class</th>
 								<th class="has-text-centered">Concentration</th>
-								<th class="has-text-centered">PHB</th>
+								<th class="has-text-centered">Ritual</th>
 							</thead>
 							<tbody>
-								<tr v-for="currentSpell in spells" @click="selectSpell(currentSpell)" :class="{'is-selected': currentSpell.name === selectedSpell.name}">
+								<tr v-for="currentSpell in searchResults" @click="selectSpell(currentSpell)" :class="{'is-selected': currentSpell.name === selectedSpell.name}">
 									<td class="has-text-centered">{{currentSpell.level}}</td>
 									<td class="">{{currentSpell.name}}</td>
-									<!-- <td class="">{{currentSpell.duration}}</td> -->
-									<td class="has-text-centered">{{currentSpell.range}}</td>
+									<td class="has-text-centered">
+										<p v-for="currentClass in currentSpell.classes">{{currentClass.name}}</p> <!-- @TODO: Make comma separation smarter -->
+									</td>
 									<td class="has-text-centered">{{currentSpell.concentration | capitalize}}</td>
-									<td class="has-text-centered">{{currentSpell.page | capitalize}}</td>
+									<td class="has-text-centered">{{currentSpell.ritual | capitalize}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -131,7 +134,9 @@
 </template>
 
 <script>
+
 	import Firebase from 'firebase'
+	import VueFuse from 'vue-fuse'
 	import db from '../db.js'
 
 	export default {
@@ -153,15 +158,17 @@
 					phb: ""
 				},
 				selectedSpell: {},
-				searchActive: true
+
+				// Searching
+				searchResults: [],
 			}
 		},
 		methods: {
 			selectSpell(spell) {
 				this.selectedSpell = spell
 			},
-			selectSearch() {
-				this.searchActive = true
+			showResults(results) {
+				this.searchResults = results
 			}
 		},
 		filters: {

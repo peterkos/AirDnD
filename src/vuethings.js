@@ -4,10 +4,13 @@
 // Vue!
 import Vue from "vue"
 import VueRouter from "vue-router"
-import VueFire from 'vuefire'
+import VueFire from "vuefire"
+import VueFuse from "vue-fuse"
+
 
 Vue.use(VueRouter)
-Vue.use(VueFire);
+Vue.use(VueFire)
+Vue.use(VueFuse)
 
 
 // Class imports
