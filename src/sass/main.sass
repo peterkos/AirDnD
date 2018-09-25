@@ -1,15 +1,11 @@
 
-
+@import "~bulma/bulma.sass"
 
 // Customized properties
 
 $fullhd: 1800px
 
 // Everything else
-
-.searchBar
-	margin-bottom: 20px
-
 
 body
 	height: 100%
@@ -18,13 +14,16 @@ body
 h1, h2
 	color: white
 
-.box
-	transition: 0.3s all
+.mainNavHero
+	background-color: #555
 
 .router-link-active
 	.box
-		transform: translateY(-5px)
-		box-shadow: 0px 5px 20px gray
+		box-shadow: inset 0px 0px 2px black
+		background-color: $blue
+		h1
+			color: white
+
 
 
 // --- Spells ---

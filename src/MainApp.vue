@@ -4,38 +4,38 @@
 		<!-- <h1> View your things below:</h1> -->
 
 		<!-- Navigation links -->
-		<section class="hero is-primary">
+		<section class="hero mainNavHero is-small">
 			<div class="hero-body">
-				<div class="columns is-centered has-text-centered is-narrow">
+				<div class="columns is-centered has-text-centered is-narrow is-half">
 
-					<div class="column ">
+					<div class="column is-one-fifth">
 						<router-link to="/spells">
 							<div class="box">
-								<h1 class="title is-size-4 has-text-black">Spells</h1>
+								<h1 class="title is-size-4">Spells</h1>
 							</div>
 						</router-link>
 					</div>
 
-					<div class="column">
+					<div class="column is-one-fifth">
 						<router-link to="/classes">
 							<div class="box">
-								<h1 class="title is-size-4 has-text-black">Classes</h1>
+								<h1 class="title is-size-4">Classes</h1>
 							</div>
 						</router-link>
 					</div>
 
-					<div class="column">
+					<div class="column is-one-fifth">
 						<router-link to="/races">
 							<div class="box">
-								<h1 class="title is-size-4 has-text-black">Races</h1>
+								<h1 class="title is-size-4">Races</h1>
 							</div>
 						</router-link>
 					</div>
 
-					<div class="column">
+					<div class="column is-one-fifth">
 						<router-link to="/items">
 							<div class="box">
-								<h1 class="title is-size-4 has-text-black">Items</h1>
+								<h1 class="title is-size-4">Items</h1>
 							</div>
 						</router-link>
 					</div>
