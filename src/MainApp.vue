@@ -42,20 +42,12 @@
 
 				</div>
 			</div>
-			<div class="hero-foot">
-				<div class="columns is-centered">
-					<div class="column is-one-third">
-						<!-- @TODO: Propogate search to specific component only! (With filtering options) -->
-						<input type="text" class="input is-narrow searchBar" placeholder="minmax bard" />
-					</div>
-				</div>
-			</div>
 		</section>
 
 		<!-- All subviews go inside here! -->
 		<!-- (Spells, Classes, etc. )-->
 		<section class="section">
-			<router-view></router-view> 
+			<router-view></router-view>
 		</section>
 	</div>
 

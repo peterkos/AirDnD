@@ -3,6 +3,64 @@
 
 		<h1 class="title has-text-centered has-text-white is-vcentered">Spells</h1>
 
+		<div class="columns is-centered">
+			<div class="column is-one-third">
+				<!-- @TODO: Propogate search to specific component only! (With filtering options) -->
+
+				<div class="field has-addons">
+					<div class="control is-expanded">
+						<input type="text"
+						class="input searchBar"
+						@click="searchActive = true"
+						@keyup.esc="searchActive = false"
+						placeholder="Search for a spell here"/>
+					</div>
+					<div class="control">
+						<a class="button is-info">Search</a>
+					</div>
+				</div>
+
+				<div class="field is-grouped is-grouped-centered">
+					<div class="control">
+						<div class="select">
+							<select>
+								<!-- @TODO: Pull dynamically to allow for homebrew classes -->
+								<option>Class:</option>
+								<option>Barbarian</option>
+								<option>Bard</option>
+								<option>Cleric</option>
+								<option>Druid</option>
+								<option>Fighter</option>
+								<option>Monk</option>
+								<option>Paladin</option>
+								<option>Ranger</option>
+								<option>Rogue</option>
+								<option>Sorcerer</option>
+								<option>Warlock</option>
+								<option>Wizard</option>
+							</select>
+						</div>
+					</div>
+					<div class="control">
+						<div class="select">
+							<select>
+								<option>Max level:</option>
+								<option v-for="count in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]">{{count}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="control checkBoxControl">
+						<input class="is-checkradio is-white" id="concentrationCheckbox" type="checkbox" name="concentrationCheckbox">
+						<label for="concentrationCheckbox" class="has-text-white">Conc.</label>
+					</div>
+					<div class="control checkBoxControl">
+						<input class="is-checkradio is-white" id="ritualCheckbox" type="checkbox" name="ritualCheckbox">
+						<label for="ritualCheckbox" class="has-text-white">Ritual</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="container is-fluid">
 			<div class="tile is-ancestor">
 				<div class="tile is-vertical is-parent shortTileSidebar spellNameSidebar">
@@ -29,7 +87,7 @@
 								<th class="has-text-centered">PHB</th>
 							</thead>
 							<tbody>
-								<tr v-for="currentSpell in spells" @click="selected(currentSpell)" :class="{'is-selected': currentSpell.name === selectedSpell.name}">
+								<tr v-for="currentSpell in spells" @click="selectSpell(currentSpell)" :class="{'is-selected': currentSpell.name === selectedSpell.name}">
 									<td class="has-text-centered">{{currentSpell.level}}</td>
 									<td class="">{{currentSpell.name}}</td>
 									<!-- <td class="">{{currentSpell.duration}}</td> -->
@@ -94,12 +152,16 @@
 					concentration: "",
 					phb: ""
 				},
-				selectedSpell: {}
+				selectedSpell: {},
+				searchActive: true
 			}
 		},
 		methods: {
-			selected(spell) {
+			selectSpell(spell) {
 				this.selectedSpell = spell
+			},
+			selectSearch() {
+				this.searchActive = true
 			}
 		},
 		filters: {
