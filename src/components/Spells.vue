@@ -5,7 +5,7 @@
 
 		<div class="container is-fluid">
 			<div class="tile is-ancestor">
-				<div class="tile is-vertical is-parent shortTileSidebar">
+				<div class="tile is-vertical is-parent shortTileSidebar spellNameSidebar">
 					<div class="tile is-child box">
 						<p class="title" v-if="!selectedSpell.name">Title</p>
 						<p class="title" v-if="selectedSpell.name">{{selectedSpell.name}}</p>
