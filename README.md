@@ -39,11 +39,15 @@ npm run dev
 (which really does `parcel index.html` in the background, because parcel is **awesome**.)
 
 
+#### Building
+
+When building, use `npm run build` for a generic build, and `npm run shortbuild` for a non-min, no-map version.
+
 ## Stack
 
-Current dev stack, subject to change because n00bz  
+Current dev stack, subject to change because n00bz
 
-Backend: [Firebase](https://firebase.google.com/)  
+Backend: [Firebase](https://firebase.google.com/)
 Frontend: [Vue.js](https://vuejs.org/), [Bulma](https://vuejs.org/), [Parcel](https://parceljs.org)
 
 
