@@ -1,6 +1,6 @@
-# Another DnD
+# AirDnD
 
-AnotherDnD is another DnD website (ah!) that manages spells, characters, monsters, feats -- you name it!
+AirDnD is another DnD website (ah!) that manages spells, characters, monsters, feats -- you name it!
 
 
 ![Screenshot of website](current_screen.png)
