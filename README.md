@@ -1,6 +1,11 @@
+
+<p align="center">
+	<img src="current_logo.png" width="400px" height="400px" />
+</p>
+
 # AirDnD
 
-AirDnD is another DnD website (ah!) that manages spells, characters, monsters, feats -- you name it!
+AirDnD is another DnD website that manages spells, characters, monsters, feats -- you name it!
 
 
 ![Screenshot of website](current_screen.png)
@@ -12,7 +17,7 @@ Since the website is in its early stages, we just want to get something up on th
 Speaking of configuration stuff....
 
 
-## Install
+## Installing
 
 First, install `npm` with `homebrew`:
 
