@@ -135,7 +135,7 @@
 
 <script>
 
-	import Firebase from 'firebase'
+	import Firebase from 'firebase/app'
 	import VueFuse from 'vue-fuse'
 	import db from '../db.js'
 

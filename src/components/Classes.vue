@@ -66,7 +66,7 @@
 </template>
 
 <script>
-	import Firebase from 'firebase'
+	import Firebase from 'firebase/app'
 	import db from '../db.js'
 	
 	let classesRef = db.ref('classes')

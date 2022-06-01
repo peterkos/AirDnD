@@ -2,7 +2,7 @@
 
 
 // Vue!
-import Vue from "vue"
+import { createApp } from "vue"
 import VueRouter from "vue-router"
 import VueFire from "vuefire"
 import VueFuse from "vue-fuse"
@@ -35,13 +35,14 @@ const router = new VueRouter({
 })
 
 // Main instance
-new Vue({
-	el: "#mainapp",
-	components: { MainApp },
+createApp({
 	router,
 	render: h => h(MainApp)
 // }).$mount('Main')
 })
+	.mount("#mainapp")
+	.components("MainApp", MainApp)
+
 
 
 
