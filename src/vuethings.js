@@ -3,49 +3,51 @@
 
 // Vue!
 import { createApp } from "vue"
-import VueRouter from "vue-router"
-import VueFire from "vuefire"
-import VueFuse from "vue-fuse"
+import { createRouter, createWebHashHistory } from "vue-router"
+import { useVueFuse } from "vue-fuse"
 
 
-Vue.use(VueRouter)
-Vue.use(VueFire)
-Vue.use(VueFuse)
+
+// FIXME: Make VueFuse work again
+// Vue.use(VueFuse)
+
+
+
+// Ensure database is initialized FIRST
+import { config } from "./db.js"
+import { initializeApp } from "firebase/app"
+import { getDatabase } from "firebase/database"
+const firebaseApp = initializeApp(config)
+// const db = getDatabase(firebaseApp)
+// export default db
 
 
 // Class imports
-import MainApp from "./MainApp.vue" // Stores router-view, nesting everything below:
 import Home from "./components/Home.vue"
-import Classes from "./components/Classes.vue"
-import Spells from "./components/Spells.vue"
-import Races from "./components/Races.vue"
-import Items from "./components/Items.vue"
+// import Classes from "./components/Classes.vue"
+// import Spells from "./components/Spells.vue"
+// import Races from "./components/Races.vue"
+// import Items from "./components/Items.vue"
 
 // Setup routing
 const routes = [
 	{ path: "/", component: Home},
-	{ path: "/classes", component: Classes },
-	{ path: "/spells", component: Spells },
-	{ path: "/races", component: Races },
-	{ path: "/items", component: Items },
+	// { path: "/classes", component: Classes },
+	// { path: "/spells", component: Spells },
+	// { path: "/races", component: Races },
+	// { path: "/items", component: Items },
 ]
 
-const router = new VueRouter({
+const router = createRouter({
+	history: createWebHashHistory(),
 	routes
 })
 
 // Main instance
-createApp({
-	router,
-	render: h => h(MainApp)
-// }).$mount('Main')
-})
-	.mount("#mainapp")
-	.components("MainApp", MainApp)
-
-
-
-
-
+import MainApp from "./MainApp.vue"
+const app = createApp(MainApp)
+app.mount("#mainapp")
+app.component("MainApp", MainApp)
+app.use(router)
 
 

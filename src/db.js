@@ -1,11 +1,12 @@
 
 
-import Firebase from 'firebase/app'
-import 'firebase/database'
+import { initializeApp } from 'firebase/app'
+import { getDatabase } from "firebase/database"
+
 
 // Initialization of Firebase
 
-const firebaseConfig = {
+const config = {
   apiKey: "AIzaSyAAEFPOxnjvOVq15GryE8at47-BDCzhvWo",
   authDomain: "anotherdnd.firebaseapp.com",
   databaseURL: "https://anotherdnd.firebaseio.com",
@@ -17,8 +18,6 @@ const firebaseConfig = {
 };
 
 
-
-let app = Firebase.initializeApp(config)
-
-const db = app.database()
-export default db
+export {
+  config
+}

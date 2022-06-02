@@ -66,10 +66,12 @@
 </template>
 
 <script>
-	import Firebase from 'firebase/app'
-	import db from '../db.js'
+	// import Firebase from 'firebase/app'
+	// import db from '../db.js'
+
+	import { getDatabase, ref, onValue } from "firebase/database"
 	
-	let classesRef = db.ref('classes')
+	let classesRef = ref(getDatabase(), "classes/")
 
 	export default {
 		name: 'Classes',
