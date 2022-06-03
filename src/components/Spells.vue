@@ -9,14 +9,13 @@
 
 				<div class="field has-addons">
 					<div class="control is-expanded">
-						<vue-fuse class="input searchBar"
+						<!-- <VueFuse class="input searchBar"
 						          placeholder="Search for spellsss"
 						          eventName="results"
 						          :list="spells"
 						          :keys="['name', 'level']"
 						          :defaultAll="true"
-						          :eventName="fuseResultsUpdated"
-						          @fuseResultsUpdated="showResults($event)"/>
+						          @fuseResultsUpdated="showResults($event)"/> -->
 					</div>
 					<div class="control">
 						<a class="button is-info">Search</a>
@@ -95,8 +94,8 @@
 									<td class="has-text-centered">
 										<p v-for="currentClass in currentSpell.classes">{{currentClass.name}}</p> <!-- @TODO: Make comma separation smarter -->
 									</td>
-									<td class="has-text-centered">{{currentSpell.concentration | capitalize}}</td>
-									<td class="has-text-centered">{{currentSpell.ritual | capitalize}}</td>
+									<td class="has-text-centered">{{capitalize(currentSpell.concentration)}}</td>
+									<td class="has-text-centered">{{capitalize(currentSpell.ritual)}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -108,19 +107,19 @@
 						<ul>
 							<li><b>Level:</b> {{selectedSpell.level}}</li>
 							<li><b>Casting time:</b> {{selectedSpell.casting_time}}</li>
-							<li><b>Concentration:</b> {{selectedSpell.concentration | capitalize}}</li>
+							<li><b>Concentration:</b> {{capitalize(selectedSpell.concentration)}}</li>
 							<li><b>Range:</b> {{selectedSpell.range}}</li>
-							<li><b>Components:</b> {{selectedSpell.components | join}}</li>
-							<li><b>Ritual:</b> {{selectedSpell.ritual | capitalize}}</li>
+							<li><b>Components:</b> {{join(selectedSpell.components)}}</li>
+							<li><b>Ritual:</b> {{capitalize(selectedSpell.ritual)}}</li>
 							<li><b>Duration:</b> {{selectedSpell.duration}}</li>
-							<!-- <li><b>Classes:</b> {{selectedSpell.classes | join}}</li> @FIXME: Tedious v-for! -->
+							<!-- <li><b>Classes:</b> {{join(selectedSpell.classes)}}</li> @FIXME: Tedious v-for! -->
 							<li><b>Material:</b> {{selectedSpell.material}}</li>
 						</ul>
 					</div>
 					<div class="tile is-child box">
 						<p class="title">Special Attributes</p>
 						<ul>
-							<li><b>School:</b> {{selectedSpell.school | getSchoolName}}</li>
+							<li><b>School:</b> {{getSchoolName(selectedSpell.school)}}</li>
 							<li><b>Higher level rules:</b></li>
 							<ul>
 								<li v-for="leveldesc in selectedSpell.higher_level">{{leveldesc}}<br></li>
@@ -137,15 +136,30 @@
 
 	import Firebase from 'firebase/app'
 	import VueFuse from 'vue-fuse'
-	import db from '../db.js'
+	// import {db} from '../vuethings.js'
+	import { getDatabase, ref, get } from 'firebase/database'
+
+	const db = getDatabase()
+
+	// const val = get(ref(db, 'spells')).then((snapshot) => {
+	// 	console.log("snapshot: " + snapshot.val())
+	// })
 
 	export default {
 		name: 'Spells',
 		firebase: function() {
+			console.log("ASDF")
 			return {
-				spells: db.ref('spells')
+				spells: []
 				// @TODO: See manual bunding in vuefire readme -- may allow for nested properties
 			}
+		},
+		created() {
+			get(ref(db, 'spells')).then((snapshot) => {
+				console.log("snapshot: " + snapshot.val())
+				this.spells = snapshot.val()
+				this.searchResults = this.spells
+			})
 		},
 		data() {
 			return {
@@ -169,9 +183,7 @@
 			},
 			showResults(results) {
 				this.searchResults = results
-			}
-		},
-		filters: {
+			},
 			capitalize: function(value) {
 				if (!value) {
 					return ''
