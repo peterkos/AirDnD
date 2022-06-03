@@ -24,7 +24,7 @@ const firebaseApp = initializeApp(config)
 
 // Class imports
 import Home from "./components/Home.vue"
-// import Classes from "./components/Classes.vue"
+import Classes from "./components/Classes.vue"
 // import Spells from "./components/Spells.vue"
 // import Races from "./components/Races.vue"
 // import Items from "./components/Items.vue"
@@ -32,7 +32,7 @@ import Home from "./components/Home.vue"
 // Setup routing
 const routes = [
 	{ path: "/", component: Home},
-	// { path: "/classes", component: Classes },
+	{ path: "/classes", component: Classes },
 	// { path: "/spells", component: Spells },
 	// { path: "/races", component: Races },
 	// { path: "/items", component: Items },

@@ -69,9 +69,15 @@
 	// import Firebase from 'firebase/app'
 	// import db from '../db.js'
 
+
+	import { initializeApp } from "firebase/app"
 	import { getDatabase, ref, onValue } from "firebase/database"
+	import { config } from "../db.js"
+
+	const firebaseApp = initializeApp(config)
+	const db = getDatabase(firebaseApp)
 	
-	let classesRef = ref(getDatabase(), "classes/")
+	let classesRef = ref(db, "classes/")
 
 	export default {
 		name: 'Classes',
